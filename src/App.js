@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router,Route,Routes} from "react-router-dom";
+import './Styles/Nescare.css'
+import './Styles/CarbonCalculator.scss'
+import './Styles/Responsive.css'
+
+import Nescare from "./Pages/Nescare/Nescare";
+import Reachcarbon from "./Pages/Nescare/Reachcarbon";
+import Services from "./Pages/Nescare/Services";
+
+import ExcessInventory from "./Pages/Nescare/ExcessInventory";
+
+import Index from "./Pages/CarbonCalculator/index";
+import ScrollToTop from "./Partials/ScrollToTop";
+import Inventory from "./Pages/Nescare/Inventory";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+    <Router>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Nescare/>}/>
+        <Route path="/reach-carbon" element={<Reachcarbon/>}/>
+        <Route path="/services" element={<Services/>}/>
+        <Route path="/inventory" element={<Inventory/>}/>
+        <Route path="/excess-inventory" element={<ExcessInventory/>}/>
+
+        <Route path="/carboncalculator" element={<Index/>}/>
+        
+      </Routes>
+    </Router>
+    
   );
 }
 
